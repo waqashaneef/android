@@ -55,6 +55,7 @@ import com.nextcloud.client.device.DeviceInfo;
 import com.nextcloud.client.di.Injectable;
 import com.nextcloud.client.network.ClientFactory;
 import com.nextcloud.client.preferences.AppPreferences;
+import com.nextcloud.ui.theming.ThemeFabUtils;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.ArbitraryDataProvider;
@@ -291,7 +292,7 @@ public class OCFileListFragment extends ExtendedListFragment implements
         mFabMain = requireActivity().findViewById(R.id.fab_main);
 
         if (mFabMain != null) { // is not available in FolderPickerActivity
-            ThemeUtils.colorFloatingActionButton(mFabMain, R.drawable.ic_plus, requireContext());
+            ThemeFabUtils.colorFloatingActionButton(mFabMain, R.drawable.ic_plus, requireContext());
         }
 
         Log_OC.i(TAG, "onCreateView() end");
@@ -1805,7 +1806,7 @@ public class OCFileListFragment extends ExtendedListFragment implements
             getActivity().runOnUiThread(() -> {
                 if (visible) {
                     mFabMain.show();
-                    ThemeUtils.colorFloatingActionButton(mFabMain, requireContext());
+                    ThemeFabUtils.colorFloatingActionButton(mFabMain, requireContext());
                 } else {
                     mFabMain.hide();
                 }
@@ -1855,10 +1856,10 @@ public class OCFileListFragment extends ExtendedListFragment implements
             getActivity().runOnUiThread(() -> {
                 if (enabled) {
                     mFabMain.setEnabled(true);
-                    ThemeUtils.colorFloatingActionButton(mFabMain, requireContext());
+                    ThemeFabUtils.colorFloatingActionButton(mFabMain, requireContext());
                 } else {
                     mFabMain.setEnabled(false);
-                    ThemeUtils.colorFloatingActionButton(mFabMain, requireContext(), Color.GRAY);
+                    ThemeFabUtils.colorFloatingActionButton(mFabMain, requireContext(), Color.GRAY);
                 }
             });
         }
