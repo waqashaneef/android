@@ -163,25 +163,25 @@ public class SettingsActivity extends ThemedPreferenceActivity
         setupBaseUri();
 
         // General
-        setupGeneralCategory(accentColor);
+        setupGeneralCategory();
 
         // Synced folders
-        setupAutoUploadCategory(accentColor, preferenceScreen);
+        setupAutoUploadCategory(preferenceScreen);
 
         // Details
-        setupDetailsCategory(accentColor, preferenceScreen);
+        setupDetailsCategory(preferenceScreen);
 
         // More
-        setupMoreCategory(accentColor);
+        setupMoreCategory();
 
         // About
-        setupAboutCategory(accentColor, appVersion);
+        setupAboutCategory(appVersion);
 
         // Dev
-        setupDevCategory(accentColor, preferenceScreen);
+        setupDevCategory(preferenceScreen);
     }
 
-    private void setupDevCategory(int accentColor, PreferenceScreen preferenceScreen) {
+    private void setupDevCategory(PreferenceScreen preferenceScreen) {
         // Dev category
         PreferenceCategory preferenceCategoryDev = (PreferenceCategory) findPreference("dev_category");
 
@@ -226,7 +226,7 @@ public class SettingsActivity extends ThemedPreferenceActivity
         }
     }
 
-    private void setupAboutCategory(int accentColor, String appVersion) {
+    private void setupAboutCategory(String appVersion) {
         PreferenceCategory preferenceCategoryAbout = (PreferenceCategory) findPreference("about");
         ThemePreferenceUtils.colorPreferenceCategory(this, preferenceCategoryAbout, R.string.prefs_category_about);
 
@@ -311,7 +311,7 @@ public class SettingsActivity extends ThemedPreferenceActivity
         }
     }
 
-    private void setupMoreCategory(int accentColor) {
+    private void setupMoreCategory() {
         PreferenceCategory preferenceCategoryMore = (PreferenceCategory) findPreference("more");
         ThemePreferenceUtils.colorPreferenceCategory(this,
                                                      preferenceCategoryMore,
@@ -495,7 +495,7 @@ public class SettingsActivity extends ThemedPreferenceActivity
         }
     }
 
-    private void setupDetailsCategory(int accentColor, PreferenceScreen preferenceScreen) {
+    private void setupDetailsCategory(PreferenceScreen preferenceScreen) {
         PreferenceCategory preferenceCategoryDetails = (PreferenceCategory) findPreference("details");
         ThemePreferenceUtils.colorPreferenceCategory(this,
                                                      preferenceCategoryDetails,
@@ -591,7 +591,7 @@ public class SettingsActivity extends ThemedPreferenceActivity
         }
     }
 
-    private void setupAutoUploadCategory(int accentColor, PreferenceScreen preferenceScreen) {
+    private void setupAutoUploadCategory(PreferenceScreen preferenceScreen) {
         PreferenceCategory preferenceCategorySyncedFolders =
                 (PreferenceCategory) findPreference("synced_folders_category");
         ThemePreferenceUtils.colorPreferenceCategory(this,
@@ -661,7 +661,7 @@ public class SettingsActivity extends ThemedPreferenceActivity
         }
     }
 
-    private void setupGeneralCategory(int accentColor) {
+    private void setupGeneralCategory() {
         PreferenceCategory preferenceCategoryGeneral = (PreferenceCategory) findPreference("general");
         ThemePreferenceUtils.colorPreferenceCategory(this, preferenceCategoryGeneral, R.string.prefs_category_general);
 
