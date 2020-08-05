@@ -4,6 +4,8 @@
 ## $2 true/false: record or verify screenshots
 ## $3 classMethod: piped from androidScreenshotTest
 
+sed -i s'#<bool name="is_beta">false</bool>#<bool name="is_beta">true</bool>#'g src/main/res/values/setup.xml
+
 if [[ $2 = "true" ]]; then
     record="-Precord"
 else
@@ -41,3 +43,5 @@ do
         "$1-$darkMode-$color" "Screenshot" "$DRONE_PULL_REQUEST" "$GIT_USERNAME" "$GIT_TOKEN"
     fi
 done < scripts/screenshotCombinations
+
+sed -i s'#<bool name="is_beta">true</bool>#<bool name="is_beta">false</bool>#'g src/main/res/values/setup.xml
