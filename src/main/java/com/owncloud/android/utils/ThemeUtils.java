@@ -167,7 +167,7 @@ public final class ThemeUtils {
         }
 
         try {
-            int color = Color.parseColor(getCapability(account, context).getServerColor());
+            int color = ColorsUtils.elementColor(account, context);
             if (replaceEdgeColors) {
                 if (isDarkModeActive(context)) {
                     if (Color.BLACK == color) {
