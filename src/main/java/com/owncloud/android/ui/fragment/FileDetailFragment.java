@@ -136,9 +136,6 @@ public class FileDetailFragment extends FileFragment implements OnClickListener,
     @BindView(R.id.empty_list_icon)
     public ImageView emptyContentIcon;
 
-    @BindView(R.id.empty_list_progress)
-    public ProgressBar emptyContentProgressBar;
-
     private int layout;
     private View view;
     private User user;
@@ -743,7 +740,6 @@ public class FileDetailFragment extends FileFragment implements OnClickListener,
 
             emptyContentHeadline.setText(R.string.file_details_no_content);
 
-            emptyContentProgressBar.setVisibility(View.GONE);
             emptyContentIcon.setImageResource(R.drawable.ic_list_empty_error);
             emptyContentIcon.setVisibility(View.VISIBLE);
         }

@@ -27,7 +27,6 @@
 
 package com.owncloud.android.ui.activity;
 
-import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -42,7 +41,6 @@ import android.view.ViewGroup;
 import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -104,7 +102,6 @@ public class UserInfoActivity extends DrawerActivity implements Injectable {
     @BindView(R.id.userinfo_username) protected TextView userName;
     @BindView(R.id.userinfo_fullName) protected TextView fullName;
     @BindView(R.id.userinfo_list) protected RecyclerView mUserInfoList;
-    @BindView(R.id.empty_list_progress) protected ProgressBar multiListProgressBar;
 
     @BindString(R.string.user_information_retrieval_error) protected String sorryMessage;
 
@@ -214,9 +211,6 @@ public class UserInfoActivity extends DrawerActivity implements Injectable {
 
             emptyContentIcon.setVisibility(View.GONE);
             emptyContentMessage.setVisibility(View.GONE);
-            multiListProgressBar.getIndeterminateDrawable().setColorFilter(ThemeUtils.primaryColor(this),
-                    PorterDuff.Mode.SRC_IN);
-            multiListProgressBar.setVisibility(View.VISIBLE);
         }
     }
 
@@ -225,8 +219,6 @@ public class UserInfoActivity extends DrawerActivity implements Injectable {
             emptyContentHeadline.setText(headline);
             emptyContentMessage.setText(message);
             emptyContentIcon.setImageResource(errorResource);
-
-            multiListProgressBar.setVisibility(View.GONE);
             emptyContentIcon.setVisibility(View.VISIBLE);
             emptyContentMessage.setVisibility(View.VISIBLE);
         }

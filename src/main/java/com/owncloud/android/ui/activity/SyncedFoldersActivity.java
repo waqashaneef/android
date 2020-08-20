@@ -40,7 +40,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
@@ -115,9 +114,6 @@ public class SyncedFoldersActivity extends FileActivity implements SyncedFolderA
 
     @BindView(R.id.empty_list_icon)
     public ImageView emptyContentIcon;
-
-    @BindView(R.id.empty_list_progress)
-    public ProgressBar emptyContentProgressBar;
 
     @BindView(R.id.empty_list_view_headline)
     public TextView emptyContentHeadline;
@@ -527,7 +523,6 @@ public class SyncedFoldersActivity extends FileActivity implements SyncedFolderA
     private void showList() {
         if (mRecyclerView != null) {
             mRecyclerView.setVisibility(View.VISIBLE);
-            emptyContentProgressBar.setVisibility(View.GONE);
 
             checkAndShowEmptyListContent();
         }
@@ -671,10 +666,8 @@ public class SyncedFoldersActivity extends FileActivity implements SyncedFolderA
             emptyContentMessage.setVisibility(View.VISIBLE);
 
             if (loading) {
-                emptyContentProgressBar.setVisibility(View.VISIBLE);
                 emptyContentIcon.setVisibility(View.GONE);
             } else {
-                emptyContentProgressBar.setVisibility(View.GONE);
                 emptyContentIcon.setVisibility(View.VISIBLE);
             }
         }

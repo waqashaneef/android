@@ -48,7 +48,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.caverock.androidsvg.SVG;
@@ -118,7 +117,6 @@ public class PreviewImageFragment extends FileFragment implements Injectable {
     private TextView mMultiListMessage;
     private TextView mMultiListHeadline;
     private ImageView mMultiListIcon;
-    private ProgressBar mMultiListProgress;
 
     private Boolean mShowResizedImage;
 
@@ -214,7 +212,6 @@ public class PreviewImageFragment extends FileFragment implements Injectable {
         mMultiListMessage = view.findViewById(R.id.empty_list_view_text);
         mMultiListHeadline = view.findViewById(R.id.empty_list_view_headline);
         mMultiListIcon = view.findViewById(R.id.empty_list_icon);
-        mMultiListProgress = view.findViewById(R.id.empty_list_progress);
     }
 
     /**
@@ -711,7 +708,6 @@ public class PreviewImageFragment extends FileFragment implements Injectable {
             mMultiListMessage.setText("");
 
             mMultiListIcon.setVisibility(View.GONE);
-            mMultiListProgress.setVisibility(View.VISIBLE);
         }
     }
 
@@ -727,7 +723,6 @@ public class PreviewImageFragment extends FileFragment implements Injectable {
 
             mMultiListMessage.setVisibility(View.VISIBLE);
             mMultiListIcon.setVisibility(View.VISIBLE);
-            mMultiListProgress.setVisibility(View.GONE);
         }
     }
 
