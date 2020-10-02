@@ -27,51 +27,33 @@ import java.io.File
 class FileUtilTest : AbstractIT() {
     @Test
     fun assertNullInput() {
-        Assert.assertEquals("text returned when searchText was not empty",
-            "",
-            FileUtil.getFilenameFromPathString(null))
+        Assert.assertEquals("", FileUtil.getFilenameFromPathString(null))
     }
 
     @Test
     fun assertEmptyInput() {
-        Assert.assertEquals("text returned when searchText was not empty",
-            "",
-            FileUtil.getFilenameFromPathString(""))
+        Assert.assertEquals("", FileUtil.getFilenameFromPathString(""))
     }
 
     @Test
     fun assertFileInput() {
         val file = getDummyFile("empty.txt")
-        Assert.assertEquals("text returned when searchText was not empty",
-            "empty.txt",
-            FileUtil.getFilenameFromPathString(file.absolutePath))
-    }
-
-    @Test
-    fun assertDotInput() {
-        val file = getDummyFile(".")
-        Assert.assertEquals("text returned when searchText was not empty",
-            ".",
-            FileUtil.getFilenameFromPathString(file.absolutePath))
+        Assert.assertEquals("empty.txt", FileUtil.getFilenameFromPathString(file.absolutePath))
     }
 
     @Test
     fun assertSlashInput() {
-        val tempPath = File(FileStorageUtils.getTemporalPath(account.name) + File.pathSeparator + "folder" )
+        val tempPath = File(FileStorageUtils.getTemporalPath(account.name) + File.pathSeparator + "folder")
         if (!tempPath.exists()) {
             Assert.assertTrue(tempPath.mkdirs())
         }
-        Assert.assertEquals("text returned when searchText was not empty",
-            "",
-            FileUtil.getFilenameFromPathString(tempPath.absolutePath))
+        Assert.assertEquals("", FileUtil.getFilenameFromPathString(tempPath.absolutePath))
     }
 
     @Test
     fun assertDotFileInput() {
         val file = getDummyFile(".dotfile.ext")
-        Assert.assertEquals("text returned when searchText was not empty",
-            ".dotfile.ext",
-            FileUtil.getFilenameFromPathString(file.absolutePath))
+        Assert.assertEquals(".dotfile.ext", FileUtil.getFilenameFromPathString(file.absolutePath))
     }
 
     @Test
@@ -81,15 +63,12 @@ class FileUtilTest : AbstractIT() {
             Assert.assertTrue(tempPath.mkdirs())
         }
 
-        Assert.assertEquals("text returned when searchText was not empty",
-            "",
-            FileUtil.getFilenameFromPathString(tempPath.absolutePath))
+        Assert.assertEquals("", FileUtil.getFilenameFromPathString(tempPath.absolutePath))
     }
 
     @Test
     fun assertNoFileExtensionInput() {
-        Assert.assertEquals("text returned when searchText was not empty",
-            "file",
-            FileUtil.getFilenameFromPathString("/just/a/file"))
+        val file = getDummyFile("file")
+        Assert.assertEquals("file", FileUtil.getFilenameFromPathString(file.absolutePath))
     }
 }
