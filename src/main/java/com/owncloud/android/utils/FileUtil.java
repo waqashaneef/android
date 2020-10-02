@@ -20,21 +20,21 @@
 
 package com.owncloud.android.utils;
 
-import com.owncloud.android.lib.resources.files.FileUtils;
+import java.io.File;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public final class FileUtil {
-    private static final char PATH_SEPARATOR = '/';
+    private static final int EMPTY_LENGTH = 0;
 
     private FileUtil() {
         // utility class -> private constructor
     }
 
     public static @NonNull String getFilenameFromPathString(@Nullable String filePath) {
-        if (filePath != null) {
-            return filePath.substring(filePath.lastIndexOf(PATH_SEPARATOR) + 1);
+        if (filePath != null && filePath.length() > EMPTY_LENGTH) {
+            return new File(filePath).getName();
         } else {
             return "";
         }
