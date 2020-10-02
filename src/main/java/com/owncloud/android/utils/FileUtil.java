@@ -34,7 +34,12 @@ public final class FileUtil {
 
     public static @NonNull String getFilenameFromPathString(@Nullable String filePath) {
         if (filePath != null && filePath.length() > EMPTY_LENGTH) {
-            return new File(filePath).getName();
+            File file = new File(filePath);
+            if (file.isFile()) {
+                return file.getName();
+            } else {
+                return "";
+            }
         } else {
             return "";
         }
